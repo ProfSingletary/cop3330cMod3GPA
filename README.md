@@ -1,13 +1,22 @@
 #COP3330C Module 3 Programming Assignment
 
-For this assignment you will continue work on the Scrum Workflow Manager 
-application by replacing the logging method from Module 2 with a class
-which handles the event logging. This class must implement an interface
-which specifies two abstract methods: void log(Object) and an overload 
-of that method: void log(Object, Instant). When log(Object) is called,
-a local Instant is created and the overloaded log method is called with 
-the local Instant as the second argument.
+For this assignment you will continue work on the Scrum Workflow Manager
+application by creating a Logger interface which will be implemented by the
+ScrumWorkFlowManager class.
 
-Any calls to the previous log method must be replaced by a call to the 
-new event log class's methods (so you will need to instantiate the
-event logging class where necessary).
+This interface specifies one abstract method: void log(Object) where Object 
+contains a log string.
+
+Subclasses can instantiate a Logger reference by casting a call to the
+ScrumWorkFlowManager's constructor to Logger, e.g. 
+ 
+    Logger logger = (Logger)new ScrumWorkFlowManager();
+
+Sample output:
+2022.08.12.10.05.08: Welcome to the Scrum Workflow Manager  
+2022.08.12.10.05.08: Team Creation: Team formed for Scrum Workflow Manager  
+2022.08.12.10.05.08: Team Member 1: Bill Bixby, Role: Product Owner  
+2022.08.12.10.05.08: Team Member 2: Hulk Hogan, Role: Scrum Team Master  
+2022.08.12.10.05.08: Team Member 3: Anthony Stark, Role: Developer  
+2022.08.12.10.05.08: Team Member 4: Thor Odinson, Role: QA Tester  
+2022.08.12.10.05.08: Team Member 5: Harry Cleese, Role: Architect  
